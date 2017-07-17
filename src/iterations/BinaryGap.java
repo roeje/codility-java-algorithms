@@ -34,7 +34,7 @@ class Solution {
 
       // Iterate over binaryString and check for consecutive 1 characters
       for(char c : binaryValue.toCharArray()) {
-         if(c == '1') {
+         if(c == '0') {
             runningCount++;
          } else {
 
@@ -57,9 +57,11 @@ class Solution {
 
    public static void main(String[] args) {
 
-      int input = args[0];
+      Solution tmp = new Solution();
 
-      system.out.println(solution(input));
+      int input = Integer.parseInt(args[0]);
+
+      System.out.println(tmp.solution(input));
 
    }
 
