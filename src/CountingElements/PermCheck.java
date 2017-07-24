@@ -51,27 +51,23 @@ Elements of input arrays can be modified.
 
 */
 
-import java.math.BigInteger;
+import java.util.*;
 
 class Solution {
 
    public int solution(int[] A){
 
-      BigInteger N = BigInteger.valueOf(A.length + 1);
-      int permutationSum = N.multiply(N.add(BigInteger.valueOf(1))).divide(BigInteger.valueOf(2)).intValue();
-      System.out.println(permutationSum);
+      Set<Integer> countSet = new HashSet<Integer>();
 
-      int arraySum = 0;
       for (int i = 0; i < A.length; i++) {
-         arraySum += A[i];
+         countSet.add(A[i]);
       }
-      System.out.println(arraySum);
-
-      if (permutationSum == arraySum) {
-         return 1;
-      } else {
-         return 0;
+      for (int i = 1; i < A.length + 1; i++) {
+         if (!countSet.contains(i)) {
+            return 0;
+         }
       }
+      return 1;
    }
 
    public static void main(String[] args) {
@@ -85,5 +81,4 @@ class Solution {
       System.out.println(tmp.solution(test2));
 
    }
-
 }
